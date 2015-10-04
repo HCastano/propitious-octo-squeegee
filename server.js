@@ -16,9 +16,8 @@ server.listen("3000", function() {
 });
 
 io.on("connection", function(socket) {
-	console.log("lol");
 	socket.on("message", function(message) {
-		console.log(message[0], message[1], message[2]);
+		console.log(message[1])
 		io.sockets.emit("message", message);
 	});
 });
