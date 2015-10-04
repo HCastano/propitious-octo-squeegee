@@ -148,9 +148,15 @@ var send = function() {
 		oops_audio.currentTime=0;
 		oops_audio.play();
 	}
+	var messages = document.getElementById("messages");
+	messages.scrollTop = messages.scrollHeight;
 };
 
 var disappear=function () {
+	if ($("#landing input").val().length === 0) {
+		alert("Lol put a name dude");
+		return;
+	}
 	$("#landing").slideToggle();
 	username=$("#landing input").val();
 };
