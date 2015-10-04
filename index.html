@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="/">
+	<link href="css/style.css" type="text/css" rel="stylesheet"/>
 	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
-	<script>
-		var socket = io();
-		var send = function() {
-			var message = [$("#line1").val(), $("#line2").val(), $("#line3").val()];
-			socket.emit("message", message);
-		};
-
-		socket.on("message", function(message) {
-			$("#messages").append($("<li>").html(message[0]));
-			$("#messages").append($("<li>").html(message[1]));
-			$("#messages").append($("<li>").html(message[2]));
-			var messages = document.getElementById("messages");
-			messages.scrollTop = messages.scrollHeight;
-		});
-	</script>
-	<link href="style.css" rel="stylesheet"/>
+	<script src="js/script.js"></script>
+	
 	<title>lol</title>
 </head>
 <body>
-
+	<div id="bigtitle" align="middle">
+		<div id="txt">Shitty Chat</div>
+	</div>
 	<div id="chat">
 		<ul id="messages"></ul>
 		<input id="line1" type="text"></input>

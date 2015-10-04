@@ -1,12 +1,16 @@
-var app = require("express")();
+var express = require("express");
+var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
+
+app.use("/css", express.static(__dirname+"/css"));
+app.use ("/js", express.static(__dirname+"/js"));
 
 app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/index.html");
 })
 
-server.listen("8000", function() {
+server.listen("3000", function() {
 	console.log("kk");
 });
 
