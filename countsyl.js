@@ -78,7 +78,11 @@ var count_syllables = function(word){
     // # Some special cases:
     if (word[word.length-1] == 'e'){
         if (numVowel !=1){ //#account for short words that end with 'e'
-            if(numVowel == 2 && word[word.length-2] == 'e'){
+            var is_vowel = false;
+        for(var vowel in vowels){
+            is_vowel = is_vowel || vowels[vowel] == word[word.length-2];
+        }
+            if(numVowel == 2 && is_vowel){
                 minsyl ++;
             }
             minsyl --;
