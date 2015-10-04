@@ -1,13 +1,12 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	width: 100%;
 }
 
 #messages {
-	height: 500px;
+	height: 20em;
 	width: 100%;
+	background-color: blue;
 }
 
 #txt{
