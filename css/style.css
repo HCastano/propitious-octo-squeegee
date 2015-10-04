@@ -23,6 +23,7 @@ html, body {
 	height: 100%;
 	background-color: green;
 }
+
 #landing input {
 	width: 50%;
 	text-align: center;
@@ -32,11 +33,15 @@ html, body {
         height: 70%;
 	width: 100%;
         overflow-y: scroll;
+        overflow-x: visible;
 }
 
 #txt{
 	display: inline-block;
 	vertical-align:middle;
-
 	font-size: 30;
+}
+
+#input-area,#send {
+    float: left;
 }
