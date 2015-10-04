@@ -1,4 +1,4 @@
-var socket = io.connect();
+var socket = io();
 var messages = $("#messages");
 
 $("#send").on("click", function() {
