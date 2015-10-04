@@ -18,8 +18,6 @@
 
 var verbose = false;
 
-var total = 0; 
-
 var count_syllables = function(word){
     var vowels = ['a', 'e', 'i', 'o', 'u'];
 
