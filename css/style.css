@@ -1,12 +1,17 @@
 html, body {
 	margin: 0;
 	padding: 0;
+        height: 100%;
+        width: 100%;
+}
+
+#chat {
+    height: 80%;
 }
 
 #messages {
-	height: 20em;
 	width: 100%;
-	background-color: blue;
+        overflow-y: scroll;
 }
 
 #txt{
