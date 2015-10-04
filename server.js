@@ -17,6 +17,6 @@ server.listen("3000", function() {
 
 io.on("connection", function(socket) {
 	socket.on("message", function(message) {
-		io.sockets.emit("message", message);
+		socket.broadcast.emit("message", message);
 	});
 });

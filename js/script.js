@@ -2,7 +2,9 @@
 
 var socket = io();
 var type_audio = new Audio('resources/AIRHORN.mp3');
-var send_audio = new Audio('resources/triple.mp3')
+var send_audio = new Audio('resources/triple.mp3');
+var receive_audio = new Audio('resources/wow.mp3');
+var oops_audio = new Audio('resources/nowyoufuckedup.mp3');
 var username="";
 
 //!//usr/bin/env python
@@ -132,12 +134,20 @@ var send = function() {
 		message = message.replace(/\n/g, '<br>');
 		socket.emit("message", [message, username.toString()]);
 		$("#textbox").val("");
+		$("#messages").append($("<li>").html("<span style='color:red'>" + username+"</span>" +  ":<br>" + message));
+		var messages = document.getElementById("messages");
+		messages.scrollTop = messages.scrollHeight;
+		send_audio.pause();
+		send_audio.currentTime=0;
+		send_audio.play();
 	} else {
+		$("#messages").append($("<li>").html("<span style='color:red'>" + username+"</span>" +  ":<br>" + "I am so stupid<br>I cannot write a haiku<br>El Pee gods help me"));
+		var messages = document.getElementById("messages");
 		socket.emit("message", ["I am so stupid<br>I cannot write a haiku<br>El Pee gods help me", username]);
+		oops_audio.pause();
+		oops_audio.currentTime=0;
+		oops_audio.play();
 	}
-	send_audio.pause();
-	send_audio.currentTime=0;
-	send_audio.play();
 };
 
 var disappear=function () {
@@ -147,6 +157,9 @@ var disappear=function () {
 
 socket.on("message", function(message) {
 	//console.log(message[1])
+	receive_audio.pause();
+	receive_audio.currentTime=0;
+	receive_audio.play()
 	$("#messages").append($("<li>").html("<span style='color:red'>" + message[1]+"</span>" +  ":<br>" + message[0]));
 	var messages = document.getElementById("messages");
 	messages.scrollTop = messages.scrollHeight;
