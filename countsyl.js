@@ -30,7 +30,7 @@ var count_syllables = function(word){
     var lastchar = null;
     var numVowel = 0 ;
 
-    word = word.toLowerCase();
+    word = word.toLowerCase().trim();
     for (var i in word){
         var c = word[i];
         var is_vowel = false;
@@ -92,4 +92,19 @@ var count_syllables = function(word){
     }
 
     return minsyl;
+}
+
+var haikuSylCount = function(inputLine){
+    var splitLines = inputLine.split(","); 
+    var sylCount = [0,0,0]; 
+
+    for (var i in splitLines){
+        var line = (splitLines[i]); 
+        var words = line.split(" "); 
+
+        for (var j in words){
+            sylCount[i]+=count_syllables(words[j]); 
+        }
+    }
+    return sylCount; 
 }
