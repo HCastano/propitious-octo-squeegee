@@ -40,21 +40,21 @@ def count_syllables(word):
             is_vowel = not on_vowel
 
         if is_vowel:
-            if verbose: print c, "is a vowel"
+            if verbose: print (c), "is a vowel"
             if not on_vowel:
                 # We weren't on a vowel before.
                 # Seeing a new vowel bumps the syllable count.
-                if verbose: print "new syllable"
+                if verbose: print ("new syllable")
                 minsyl += 1
                 maxsyl += 1
             elif on_vowel and not in_diphthong and c != lastchar:
                 # We were already in a vowel.
                 # Don't increment anything except the max count,
                 # and only do that once per diphthong.
-                if verbose: print c, "is a diphthong"
+                if verbose: print (c), "is a diphthong"
                 in_diphthong = True
                 maxsyl += 1
-        elif verbose: print "[consonant]"
+        elif verbose: print ("[consonant]")
 
         on_vowel = is_vowel
         lastchar = c
@@ -73,9 +73,9 @@ if __name__ == '__main__':
         for word in open(sys.argv[2]):
             word = word.strip()
             smax, smin = count_syllables(word)
-            print word, smax, smin
+            print (word, smax, smin)
     else:
         for word in sys.argv[1:]:
             word = word.strip()
             smax, smin = count_syllables(word)
-            print word, smax, smin
+            print (word, smax, smin)
