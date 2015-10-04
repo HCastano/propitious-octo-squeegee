@@ -93,19 +93,3 @@ var count_syllables = function(word){
 
     return minsyl;
 }
-
-var main = function(words){
-    for (var word in words){
-        word = word.trim();
-        smin = count_syllables(word);
-        total+= smax;
-        console.log (word, smax, smin) //#check, might be backwards
-    }
-    console.log (total);
-
-    if (total != 17){
-        console.log ("Not a haiku");
-    }else{
-        console.log ("You made a goddam Haiku, gg");    
-    }
-}
