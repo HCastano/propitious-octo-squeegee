@@ -1,14 +1,13 @@
 var socket = io();
 
 var send = function() {
-			var message = [$("#line1").val(), $("#line2").val(), $("#line3").val()];
+			var message = $("#textbox").val();
+			message = message.replace(/\n/g, '<br>');
 			socket.emit("message", message);
 };
 
 socket.on("message", function(message) {
-    $("#messages").append($("<li>").html(message[0]));
-    $("#messages").append($("<li>").html(message[1]));
-    $("#messages").append($("<li>").html(message[2]));
+    $("#messages").append($("<li>").html(message));
     var messages = document.getElementById("messages");
     messages.scrollTop = messages.scrollHeight;
 })	
